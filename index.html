@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUB DIGITAL - Studiu de Impact & Fișa de Proiect Erasmus+</title>
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #ffcc00;
+            --dark-color: #1a252f;
+            --light-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #e9ecef;
+            --text-color: #2c3e50;
+            --accent-color: #27ae60;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #002266);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.9;
+            max-width: 950px;
+            margin: 0 auto 15px auto;
+        }
+
+        .header-links-container {
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .header-link {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: underline;
+            transition: opacity 0.2s ease;
+        }
+
+        .header-link:hover {
+            opacity: 0.8;
+        }
+
+        .badge {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        /* KPI Section */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .kpi-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .kpi-number {
+            font-size: 2.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .kpi-label {
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        /* General Info Table */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .info-table th, .info-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-table th {
+            background-color: var(--primary-color);
+            color: white;
+            width: 30%;
+        }
+
+        /* Special Diaspora Box */
+        .diaspora-box {
+            background: #fffdf0;
+            border: 1px solid #ffe58f;
+            border-left: 6px solid var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .diaspora-box h3 {
+            color: var(--dark-color);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .diaspora-box p {
+            font-size: 0.98rem;
+            color: #444;
+            margin-bottom: 12px;
+        }
+
+        /* 6 Strategic Directions Grid */
+        .directions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .direction-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .direction-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .direction-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .direction-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .direction-card ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .direction-card ul li::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Work Packages Grid */
+        .wp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .wp-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .wp-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .wp-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .wp-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.95rem;
+        }
+
+        .wp-card ul li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* Detailed Impact Section */
+        .impact-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .impact-item {
+            margin-bottom: 25px;
+        }
+
+        .impact-item h4 {
+            color: var(--dark-color);
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .impact-item p, .impact-item ul {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .impact-item ul {
+            margin-top: 8px;
+            margin-left: 20px;
+        }
+
+        /* Budget and Calendar Tables */
+        .grid-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 850px) {
+            .grid-two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .custom-table th, .custom-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .custom-table th {
+            background-color: var(--dark-color);
+            color: white;
+        }
+
+        /* Disclaimer Footer */
+        .disclaimer-container {
+            background: #eef2f7;
+            border: 1px solid #d0d7de;
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 40px;
+        }
+
+        .disclaimer-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .disclaimer-text {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Studiu de Impact</h1> 
+        <h2>HUB DIGITAL: Competențe Practice de Digitalizare, OCR și Gestionare a Datelor pentru Micro-Antreprenori și Sectorul Asociativ (din diaspora românească)</h2>
+        <div class="header-links-container">
+            <a href="https://dumbravaalex.github.io/Workshop/#acasa" target="_blank" class="header-link" rel="noopener noreferrer">
+                🌐 Portal Workshop: https://dumbravaalex.github.io/Workshop/#acasa
+            </a>
+            <a href="https://competentedigitalizare.blogspot.com/" target="_blank" class="header-link" rel="noopener noreferrer">
+                📝 Blog Oficial: https://competentedigitalizare.blogspot.com/
+            </a>
+        </div>
+        <span class="badge">Erasmus+ KA210-ADU – Educația Adulților</span>
+    </header>
+
+    <div class="container">
+
+        <!-- KPI Grid -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-number">30+</div>
+                <div class="kpi-label">Ore de Conținut & Instruire Practică</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-number">10+</div>
+                <div class="kpi-label">Module Video tip OER (YouTube)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-number">20</div>
+                <div class="kpi-label">Audituri Digitale Remote (1-la-1)</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-number">30.000 €</div>
+                <div class="kpi-label">Grant Global Fix (Lump Sum)</div>
+            </div>
+        </div>
+
+        <!-- General Info -->
+        <h2 class="section-title">Informații Generale Proiect</h2>
+        <table class="info-table">
+            <tr>
+                <th>Titlu Proiect</th>
+                <td>HUB DIGITAL: Competențe Practice de Digitalizare, OCR și Gestionare a Datelor pentru Micro-Antreprenori și Sectorul Asociativ (din diaspora românească)</td>
+            </tr>
+            <tr>
+                <th>Linie de Finanțare</th>
+                <td>Erasmus+ KA210-ADU – Parteneriate de Mică Anvergură (Educația Adulților)</td>
+            </tr>
+            <tr>
+                <th>Inițiator Tehnic</th>
+                <td>Ing. Dumbravă Alexandru</td>
+            </tr>
+            <tr>
+                <th>Solicitant / Lider Proiect</th>
+                <td>Centrul String</td>
+            </tr>
+            <tr>
+                <th>Grup Țintă Extins</th>
+                <td>Tineri, Voluntari, Antreprenori (PFA, II, IF), Lucrători de Tineret, Formatori, ONG-uri și români din Diaspora pregătiți pentru repatriere antreprenorială</td>
+            </tr>
+        </table>
+
+        <!-- Context & Diaspora Need -->
+        <div class="diaspora-box">
+            <h3>Nevoia Strategică a Diasporei Românești de Micro-Antreprenori</h3>
+            <p><strong>Bariera Reîntoarcerii în Țară:</strong> Mii de români din diaspora doresc să se reîntoarcă în România pentru a capitaliza experiența de muncă dobândită în străinătate prin deschiderea de afaceri proprii (PFA, SRL) sau inițiative comunitare (ONG). Cu toate acestea, ei se lovesc de un sistem birocratic fragmentat, bazat pe arhive fizice greoaie și procese administrative opace, complet diferite de mediile digitale cu care s-au obișnuit în Europa de Vest.</p>
+            <p><strong>Rolul Hub-ului Digital:</strong> HUB DIGITAL oferă diasporei acces gratuit de la distanță la instruire practică privind semnătura electronică eIDAS (folosind Buletinul Electronic), digitalizarea documentelor fiscale prin e-Factura și SPV, precum și securizarea arhivelor proprii. Acest know-how le permite să își gestioneze afacerile eficient încă de la repatriere, eliminând teama de birocrație și asigurând sustenabilitatea investițiilor lor în economie.</p>
+        </div>
+
+        <!-- 6 Strategic Directions -->
+        <h2 class="section-title">6 Direcții Strategice Implementate</h2>
+        <div class="directions-grid">
+            
+            <div class="direction-card">
+                <h3>1. Optimizarea Fluxurilor de Scanare & OCR</h3>
+                <p>Conversia arhivelor fizice brute în fișiere inteligente și ușor de gestionat.</p>
+                <ul>
+                    <li>Scanare la standardul de aur de 300 DPI cu echipamente CZUR Shine Ultra.</li>
+                    <li>Curățare și prelucrare avansată prin ScanTailor și suita PDF24.</li>
+                    <li>Generarea de arhive „înghețate” în format ISO pentru conservarea structurii.</li>
+                </ul>
+            </div>
+
+            <div class="direction-card">
+                <h3>2. Formulare Inteligente (Paperless)</h3>
+                <p>Trecerea la documente dinamice completabile direct pe computer sau telefon.</p>
+                <ul>
+                    <li>Construirea șabloanelor în format nativ .oform cu ONLYOFFICE.</li>
+                    <li>Câmpuri interactive: text, liste derulante, butoane radio și casete de bifă.</li>
+                    <li>Export în PDF interactiv și blocarea datelor (flattening) înainte de semnare.</li>
+                </ul>
+            </div>
+
+            <div class="direction-card">
+                <h3>3. Semnătură Electronică & eIDAS</h3>
+                <p>Garantarea valorii juridice complete pentru fluxurile digitale de documente.</p>
+                <ul>
+                    <li>Diferențierea nivelurilor SES, AES și QES (Semnătura Calificată).</li>
+                    <li>Utilizarea Buletinului Electronic (CIE) prin cititoare NFC direct în Adobe Acrobat.</li>
+                    <li>Eliminarea costurilor terțe prin folosirea certificatului emis de stat.</li>
+                    <li>Salvare și validare arhivistică pe termen lung în format standard PDF/A.</li>
+                </ul>
+            </div>
+
+            <div class="direction-card">
+                <h3>4. Securitate Cibernetică & GDPR</h3>
+                <p>Protejarea datelor sensibile ale micro-firmei și respectarea Nomenclatorului Arhivistic.</p>
+                <ul>
+                    <li>Protecție împotriva Ransomware și Troieni prin soluții hardware Read-Only.</li>
+                    <li>Alegerea între Cloud Personal (Self-Hosted) și Cloud Plătit (SaaS).</li>
+                    <li>Aplicarea termenelor legale de păstrare și procedura de distrugere sigură (Wiping).</li>
+                </ul>
+            </div>
+
+            <div class="direction-card">
+                <h3>5. Căutare Avansată Offline (DocFetcher)</h3>
+                <p>Interogarea instantanee a conținutului fișierelor fără a depinde de conexiuni la internet.</p>
+                <ul>
+                    <li>Indexare full-text pe motor Apache Lucene fără trimitere de date în cloud.</li>
+                    <li>Utilizarea operatorilor Booleeni (AND, OR, NOT) și căutări fuzzy (tildă).</li>
+                    <li>Extragere automată de date structurate (CUI, facturi) folosind Expresii Regulate (Regex).</li>
+                </ul>
+            </div>
+
+            <div class="direction-card">
+                <h3>6. Audituri Digitale Remote (1-la-1)</h3>
+                <p>Consultanță individualizată la distanță pentru optimizarea fluxurilor locale ale beneficiarilor.</p>
+                <ul>
+                    <li>Analiza structurii de fișiere prin sesiuni video online (Zoom/Meet/Teams).</li>
+                    <li>Colectarea stării inițiale prin chestionare digitale preliminare.</li>
+                    <li>Livrarea unui plan personalizat de eficientizare și generarea datelor pentru Studiul de Impact.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Work Packages -->
+        <h2 class="section-title">Pachete de Lucru (Work Packages)</h2>
+        <div class="wp-grid">
+            <div class="wp-card">
+                <h3>WP1: Management & Coordonare</h3>
+                <ul>
+                    <li>Depunerea cererii de finanțare și raportare UE (Centrul String)</li>
+                    <li>Elaborarea programei tehnice și furnizarea echipamentelor CZUR (Expert Tehnic)</li>
+                    <li>Coordonarea întâlnirilor transnaționale cu partenerul extern din UE</li>
+                </ul>
+            </div>
+            <div class="wp-card">
+                <h3>WP2: Formare & Livrabile Digitale</h3>
+                <ul>
+                    <li><strong>Pilonul 1 (YouTube):</strong> 10-12 episoade video (3-7 min promo / 30-60 min aprofundare)</li>
+                    <li><strong>Pilonul 2 (Ateliere Fizice):</strong> 6 workshop-uri interactive cu Gamification („Vânătoarea OCR”)</li>
+                    <li><strong>Pilonul 3 (Audit Remote):</strong> 20 de sesiuni 1-la-1 de consultanță și optimizare de flux</li>
+                </ul>
+            </div>
+            <div class="wp-card">
+                <h3>WP3: PR, Comunicare & Diseminare</h3>
+                <ul>
+                    <li>Branding și identitate vizuală conform standardelor Erasmus+</li>
+                    <li>Organizarea unui Eveniment de Multiplicare local</li>
+                    <li>Publicarea rezultatelor pe EPALE și Erasmus+ Project Results Platform</li>
+                    <li><strong>Studiu de Impact (Impact Assessment)</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Impact Assessment Deep Dive -->
+        <h2 class="section-title">Studiu de Impact (Impact Assessment)</h2>
+        <div class="impact-box">
+            <div class="impact-item">
+                <h4>1. Evaluarea Ex-Ante și Ex-Post a Competențelor Digitale</h4>
+                <p>Implementarea unor chestionare standardizate aplicate la începutul și la finalul sesiunilor de formare (ateliere fizice și audituri 1-la-1) pentru a măsura progresul real al participanților în stăpânirea tehnologiilor de scanare, procesare OCR și gestionare securizată a datelor.</p>
+            </div>
+
+            <div class="impact-item">
+                <h4>2. Metodologia Auditurilor Digitale Remote (Pilonul 3)</h4>
+                <p>Pentru a depăși barierele logistice și a asigura eficiență maximă, auditurile de digitalizare se desfășoară la distanță (remote):</p>
+                <ul>
+                    <li><strong>Sesiuni Video Online:</strong> Consultanță 1-la-1 prin platforme de videoconferință (Zoom, Meet, Teams) cu partajare de ecran.</li>
+                    <li><strong>Chestionare Preliminare:</strong> Colectarea datelor despre arhivă și structura actuală de fișiere înainte de apel.</li>
+                    <li><strong>Plan de Optimizare Personalizat:</strong> Livrarea unui ghid individualizat de eficientizare a fluxului de date.</li>
+                    <li><strong>Sursă Obiectivă de Date:</strong> Datele din aceste 20 de audituri constituie baza empirică pentru Raportul de Impact.</li>
+                </ul>
+            </div>
+
+            <div class="impact-item">
+                <h4>3. Indicatori de Eficiență Operațională și ROI (Time-Saved)</h4>
+                <p>Cuantificarea timpului economisit de micii antreprenori prin înlocuirea căutărilor manuale în dosare fizice de hârtie cu un sistem de căutare instantanee bazat pe OCR (Ctrl+F) și multi-indexare offline (DocFetcher).</p>
+            </div>
+
+            <div class="impact-item">
+                <h4>4. Studii de Caz Calitative & Sustenabilitate</h4>
+                <p>Elaborarea a 2-3 studii de caz detaliate din auditurile efectuate și analizarea modului în care Centrul String va continua să utilizeze echipamentele de scanare și suportul de curs după închiderea finanțării europene.</p>
+            </div>
+        </div>
+
+        <!-- Budget & Calendar Grid -->
+        <div class="grid-two-col">
+            <div>
+                <h2 class="section-title">Buget Estimativ (Lump Sum)</h2>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Categorie Cheltuială</th>
+                            <th>Suma (EUR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Remunerare Expertiză Tehnică & Formare Trainer</td>
+                            <td>8.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Management Proiect & Regii Centrul String / Deplasare</td>
+                            <td>13.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Partener Străin UE (Cazare, Sală Conferință ~20 pers.)</td>
+                            <td>7.000 €</td>
+                        </tr>
+                        <tr>
+                            <td>Achiziție Echipamente, Consumabile, Licențe & Premii</td>
+                            <td>2.000 €</td>
+                        </tr>
+                        <tr>
+                            <th>TOTAL GRANT ERASMUS+</th>
+                            <th>30.000 €</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <h2 class="section-title">Calendar de Implementare</h2>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Perioadă</th>
+                            <th>Etapă Cheie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Septembrie – Octombrie 2026</strong></td>
+                            <td>Agreare parteneriat formal și identificare partener UE pe EPALE.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Noiembrie 2026 – Februarie 2027</strong></td>
+                            <td>Redactare cerere de finanțare și depunere proiect.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>T1 – T3 2027</strong></td>
+                            <td>Execuție proiect: creare conținut video, ateliere fizice și audituri remote.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Official EU Disclaimer -->
+        <div class="disclaimer-container">
+            <div class="disclaimer-title">Clauză de declinare a responsabilității:</div>
+            <div class="disclaimer-text">
+                Finanțat de Uniunea Europeană. Punctele de vedere și opiniile exprimate aparțin exclusiv autorului (autorilor) și nu reflectă neapărat punctele de vedere și opiniile Uniunii Europene sau ale Agenției Executive Europene pentru Educație și Cultură (EACEA). Nici Uniunea Europeană și nici EACEA nu pot fi considerate răspunzătoare pentru acestea.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
